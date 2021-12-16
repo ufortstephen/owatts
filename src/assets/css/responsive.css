@@ -1,0 +1,92 @@
+    /* Reesponsive Styles */
+    /* Max-968px */
+    
+    @media (max-width: 996px) {
+        .nav-item {
+            width: max-content;
+        }
+        .navbar-light .navbar-nav .show>.nav-link,
+        .navbar-light .navbar-nav .active>.nav-link,
+        .navbar-light .navbar-nav .nav-link.show,
+        .navbar-light .navbar-nav .nav-link.active {
+            color: orange;
+            background: transparent;
+        }
+        .navbar-nav {
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .active .nav-link::after {
+            width: 0;
+        }
+        .navbar-nav .nav-link {
+            padding-right: 0;
+            padding-left: 12px;
+        }
+        .header__icons {
+            gap: 2rem;
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 2rem;
+        }
+    }
+    /* Max-968px */
+    /* Max-500px */
+    
+    @media (max-width: 568px) {
+        #collapsibleNavId {
+            position: fixed;
+            background-color: #000;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            padding: 2rem 1rem;
+            padding-top: 2rem;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            z-index: 1;
+        }
+        .navbar-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .navbar-light .navbar-nav .show>.nav-link,
+        .navbar-light .navbar-nav .active>.nav-link,
+        .navbar-light .navbar-nav .nav-link.show,
+        .navbar-light .navbar-nav .nav-link.active {
+            color: orange !important;
+            background: transparent !important;
+            border-radius: 15px;
+            padding: 6px 12px;
+        }
+        .nav-item {
+            width: max-content;
+        }
+        .navbar-nav {
+            flex-direction: row;
+            overflow: auto;
+        }
+        .carousel-indicators {
+            bottom: 5% !important;
+        }
+        .hero__text {
+            height: 70vh;
+        }
+    }
+    /* Max-500px */
+    /* M */
+    /* I  */
+    /* N  */
+    
+    @media (min-width: 568px) {
+        .close_nav--btn {
+            display: none;
+        }
+    }
+    /*  */
+    /*  */
+    
+    @media(min-width:569px) and (max-width:992px) {
+        .navbar-nav {
+            flex-direction: row;
+        }
+    }
