@@ -43,6 +43,7 @@ export default createStore({
     ],
     accessory: [],
     cart: [],
+    order: [],
     isLoggedIn: null,
     token: 'jn',
   },
@@ -70,6 +71,11 @@ export default createStore({
     },
     ADD_ITEM_TO_CART: (state, data) => {
       state.cart.push(data)
+      state.order.push({
+        id: data.id,
+        quantity: 1,
+        price: '',
+      })
     },
   },
   actions: {
@@ -93,11 +99,23 @@ export default createStore({
       console.log(res.data.data.product_categories)
       return res
     },
+    async makeOrder({ dispatch }, order) {
+      const res = await axios.post(baseUrl + 'orders', {
+        Authorization: `Bearer ${this.$store.getters('getToken')}`,
+        order,
+      })
+      dispatch('ORDERR', res.data)
+      console.log(res)
+      return res
+    },
   },
 
   getters: {
     getProduct: (state) => (id) => {
       return state.options.find((option) => option.name === id)
+    },
+    getToken: (state) => {
+      return state.token
     },
     getSingleProduct: (state) => (id) => {
       return state.products.filter((option) => option.categories[0].name === id)

@@ -32,7 +32,7 @@
                 {{ cart[cart.length - 1].short_description }}
               </small>
             </div>
-            <div>$7,000</div>
+            <div>&nbsp;</div>
           </div>
         </div>
       </div>

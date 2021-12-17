@@ -6189,6 +6189,11 @@
   "resolved" "https://registry.npmjs.org/module-alias/-/module-alias-2.2.2.tgz"
   "version" "2.2.2"
 
+"mosha-vue-toastify@^1.0.23":
+  "integrity" "sha512-K9fij3e3H+E/Lj82ISrgmyKrtM5RNmtZC/KG/KH47+oZGmzAkN/Zuz39kBdT/Mp8OxaHuIWQntEUMP+HdmK1xA=="
+  "resolved" "https://registry.npmjs.org/mosha-vue-toastify/-/mosha-vue-toastify-1.0.23.tgz"
+  "version" "1.0.23"
+
 "ms@^2.1.1", "ms@2.1.2":
   "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
@@ -8500,6 +8505,11 @@
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
+
+"vue3-carousel@^0.1.34":
+  "integrity" "sha512-xXbq4+dDLAOgPHs2DLz/oLuo1fAMWFYee8bdzRXiZwumwRbAGKuy13tpgTXgpZo/tHhX+d76T3GZr7vKt7NgXw=="
+  "resolved" "https://registry.npmjs.org/vue3-carousel/-/vue3-carousel-0.1.34.tgz"
+  "version" "0.1.34"
 
 "vuex-persistedstate@^4.1.0":
   "integrity" "sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ=="

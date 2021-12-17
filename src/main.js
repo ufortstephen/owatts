@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from '@/store/index'
 // import axios from 'axios'
+import moshaToast from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
 import VueCarousel from 'vue-carousel'
 
 import CoreuiVue from '@coreui/vue'
@@ -22,4 +24,5 @@ app.component('CIcon', CIcon)
 app.component('DocsCallout', DocsCallout)
 app.component('DocsExample', DocsExample)
 
+app.use(moshaToast)
 app.mount('#app')

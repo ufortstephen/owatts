@@ -2,24 +2,24 @@
   <div>
     <div style="background: rgb(0, 0, 0)" class=""><AppHeader /></div>
     <div class="container">
-      <h5 class="text-left text-md-left my-3">Items in Cart</h5>
+      <h6 class="text-left text-md-left my-3">Items in Cart</h6>
     </div>
-    <div class="items section container px-3" v-if="cart.length > 0">
+    <div class="items container px-3" v-if="cart.length > 0">
       <div>
         <CartItem class="mb-3" />
       </div>
       <div>
         <div class="order__summary rounded">
-          <h5>Order Summary (3)</h5>
-          <div class="d-flex justify-content-between border-bottom">
+          <h5>Order Summary ( {{ cart.length }} )</h5>
+          <!-- <div class="d-flex justify-content-between border-bottom">
             <div>
               <p class="text-muted mb-1">Checkout</p>
               <p class="mb-1">Solomon Benjamin</p>
               <p>solomonbenjamin@test.com</p>
             </div>
             <p class="text-info">Edit</p>
-          </div>
-          <div class="d-flex justify-content-between border-bottom mt-3">
+          </div> -->
+          <!-- <div class="d-flex justify-content-between border-bottom mt-3">
             <div>
               <p class="text-muted mb-1">Billing Adress</p>
               <p class="mb-1">Solomon Benjamin</p>
@@ -28,7 +28,7 @@
               <p class="mb-1">Nigeria.</p>
             </div>
             <p class="text-info">Edit</p>
-          </div>
+          </div> -->
 
           <div
             class="d-flex justify-content-between border-bottom mt-3"
@@ -86,6 +86,7 @@
         ><button class="shop__btn p-2" @click="signIn">SIGN IN</button>
       </div>
     </div>
+    <!-- {{ order }} -->
     <AppFooter />
   </div>
 </template>
@@ -96,6 +97,7 @@ import CartItem from '@/components/CartItems.vue'
 // import AppBreadcrumb from '@/components/AppBreadcrumb'
 import AppHeader from '@/components/HomeHeaderComponent.vue'
 import AppFooter from '@/components/FooterComponentOne.vue'
+import axios from 'axios'
 
 export default {
   name: 'Login',
@@ -107,27 +109,60 @@ export default {
     AppFooter,
   },
   computed: {
-    ...mapState(['sidebarUnfoldable', 'options', 'cart', 'isLoggedIn']),
+    ...mapState([
+      'sidebarUnfoldable',
+      'options',
+      'cart',
+      'order',
+      'isLoggedIn',
+      'token',
+    ]),
     getProductCategories() {
       return this.$store.getters.getProduct(this.$route.params.id)
     },
   },
   data() {
-    return {}
+    return {
+      products: [],
+      baseUrl: 'https://uat.owatts.io/api/v1/',
+    }
   },
   methods: {
-    ...mapActions(['getOptions']),
+    ...mapActions(['getOptions', 'makeOrder']),
     shop() {
       this.$router.push('/shop')
     },
     signIn() {
       this.$router.push('/auth')
     },
-    placeOrder() {
+    async placeOrder() {
       if (this.isLoggedIn) {
-        alert('Yes')
+        // this.makeOrder(this.order)
+        try {
+          const res = await axios.post(this.baseUrl + 'orders', this.order, {
+            headers: {
+              Authorization: `Bearer ${this.token}`,
+            },
+          })
+          console.log(res)
+          this.$moshaToast(`Successfully made order`, {
+            hideProgressBar: false,
+            type: 'success',
+            position: 'top-right',
+          })
+        } catch (error) {
+          this.$moshaToast(`Error making order`, {
+            hideProgressBar: false,
+            type: 'danger',
+            position: 'top-right',
+          })
+          console.log(error)
+        }
       } else {
-        alert('NO')
+        this.$moshaToast('Login in to your account to process your order', {
+          hideProgressBar: false,
+          type: 'warning',
+        })
         this.$router.push('auth')
       }
     },
@@ -163,6 +198,9 @@ export default {
 h6,
 p {
   color: #000;
+}
+html:not([dir='rtl']) .form-check {
+  padding-left: 0em !important;
 }
 .form-check-label input {
   display: block;

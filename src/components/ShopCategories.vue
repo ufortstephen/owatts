@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="section container" id="categories">
-      <!-- <h4>Categories</h4> -->
+      <h4 class="col">Products</h4>
       <!-- {{ getProductCategories[0] }} <br /> -->
       <br />
       <!-- {{ products }} -->
       <div
-        class="products__container section px-3"
+        class="products__container px-3"
         v-if="getProductCategories.length > 1"
       >
         <div
@@ -25,7 +25,7 @@
           <div class="category__name py-3 pl-2">
             <h6 class="">{{ product.name }}</h6>
             <router-link :to="{ path: `/shop/${found.name}/${product.name}` }">
-              <button class="view__products-btn">VIEW ALL PRODUCTS</button>
+              <button class="view__products-btn">MAKE RESERVATION</button>
             </router-link>
           </div>
         </div>

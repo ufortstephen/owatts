@@ -21,13 +21,13 @@
             {{ cartItem.short_description }}
           </p>
         </div>
-        <div>$7,000</div>
+        <div></div>
       </div>
       <div class="d-flex justify-content-between w-100 w-md-75">
         <p class="add__btn">
-          <button>&minus;</button>
-          <span>2</span>
-          <button>&plus;</button>
+          <button @click="decQty">&minus;</button>
+          <span> {{ quantity }} </span>
+          <button @click="incQty">&plus;</button>
         </p>
         <a style="color: #2050fd">Remove</a>
       </div>
@@ -39,7 +39,24 @@
 import { mapState } from 'vuex'
 export default {
   data() {
-    return {}
+    return {
+      quantity: 1,
+    }
+  },
+
+  methods: {
+    decQty() {
+      this.quantity--
+      if (this.quantity < 1) {
+        this.quantity = 1
+      }
+    },
+    incQty() {
+      this.quantity++
+      // if (this.quantity < 0) {
+      //   this.quantity = 0
+      // }
+    },
   },
 
   computed: {

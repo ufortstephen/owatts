@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <div class="px-3 fixed-top" style="z-index: 9; background: rgb(0, 0, 0)"> -->
-    <!-- <AppHeader /> -->
+    <AppHeader />
     <!-- </div> -->
     <!-- <CContainer class="my-4">
       <AppBreadcrumb class="bread" style="font-size: small !important" />
@@ -163,12 +163,12 @@
 <script>
 import { mapActions } from 'vuex'
 // import AppBreadcrumb from '@/components/AppBreadcrumb'
-// import AppHeader from '@/components/HeaderComponentOne.vue'
+import AppHeader from '@/components/HeaderComponentOne.vue'
 export default {
   name: 'Login',
   components: {
     // AppBreadcrumb,
-    // AppHeader,
+    AppHeader,
   },
   data() {
     return {

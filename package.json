@@ -31,9 +31,11 @@
     "@coreui/vue-chartjs": "2.0.0",
     "axios": "^0.24.0",
     "core-js": "^3.19.0",
+    "mosha-vue-toastify": "^1.0.23",
     "vue": "^3.2.23",
     "vue-carousel": "^0.18.0",
     "vue-router": "^4.0.12",
+    "vue3-carousel": "^0.1.34",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.1.0"
   },

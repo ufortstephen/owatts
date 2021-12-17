@@ -138,8 +138,8 @@ export default {
 }
 
 h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 2.6rem;
+  font-family: sans-serif !important;
+  font-size: 3.6rem;
   font-weight: bolder;
   color: #fff;
 }

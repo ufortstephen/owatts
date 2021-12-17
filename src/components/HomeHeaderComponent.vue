@@ -4,9 +4,9 @@
       class="navbar navbar-expand-lg navbar-light container sticky-top"
       id="navbar_top"
     >
-      <a class="navbar-brand" href="#"
+      <router-link to="/" class="navbar-brand"
         ><img src="@/assets/images/logo.png" alt=""
-      /></a>
+      /></router-link>
       <button
         class="navbar-toggler d-lg-none"
         type="button"
@@ -16,9 +16,9 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="">
+        <router-link to="/" class="">
           <img src="@/assets/images/menu__icon.png" alt=""
-        /></span>
+        /></router-link>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <button
@@ -64,14 +64,30 @@
             <a class="nav-link" href="#">Accessories </a>
           </li>
         </ul>
-        <div class="header__icons" style="gap: 2rem" v-if="isLoggedIn">
+        <div
+          class="header__icons align-items-center"
+          style="gap: 2rem"
+          v-if="isLoggedIn"
+        >
           <span
             ><CIcon icon="cil-magnifying-glass" style="color: #ff7e00"
           /></span>
-          <router-link to="/cart" class="cart"
-            ><img src="@/assets/images/cartt.png" alt="" class="mx-4" />
-            <i class="cil-energy"></i
-          ></router-link>
+          <router-link to="/cart" class="ca t"
+            ><img
+              v-if="cart.length > 0"
+              src="@/assets/images/c.png"
+              alt=""
+              class="mx-4"
+              style="width: 27px"
+            />
+            <img
+              v-else
+              src="@/assets/images/empty.png"
+              alt=""
+              class="mx-4"
+              style="width: 27px"
+            />
+          </router-link>
           <span><img src="@/assets/images/avatar.png" alt="" /></span>
           <span>
             <CDropdown dark>
@@ -123,7 +139,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['isLoggedIn']),
+    ...mapState(['isLoggedIn', 'cart']),
   },
 
   methods: {},

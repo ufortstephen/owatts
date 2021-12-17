@@ -6,21 +6,50 @@
     <!-- <CContainer class="my-4" style="margin-top: 5rem">
       <AppBreadcrumb class="bread" style="font-size: small !important" />
     </CContainer> -->
-
     <div class="products">
+      <div class="product__image px-3 text-center">
+        <!-- <img src="@/assets/images/kike-gas.png" alt="" style="width: 80%" /> -->
+        <img src="@/assets/images/solar.png" alt="fr" style="width: 100px" />
+        <div class="carousel__container">
+          <carousel :items-to-show="3">
+            <slide v-for="slide in 10" :key="slide">
+              <div class="p-3 mx-3 image__container">
+                <img
+                  src="@/assets/images/solar.png"
+                  alt=""
+                  style="width: 50px"
+                  width="50px"
+                />
+              </div>
+              <!-- {{ item }} -->
+            </slide>
+
+            <template #addons>
+              <navigation />
+              <!-- <pagination /> -->
+            </template>
+          </carousel>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="products">
       <div
         class="product__image px-3"
         :style="{
           'background-image': 'url(' + item.categories[0].image_url + ')',
         }"
-      ></div>
-    </div>
+      >
+        
+      </div>
+    </div> -->
     <DetailComponent />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import DetailComponent from './ProductDetailComponent.vue'
 // import AppBreadcrumb from '@/components/AppBreadcrumb'
 import AppHeader from '@/components/HomeHeaderComponent.vue'
@@ -34,6 +63,10 @@ export default {
     AppHeader,
     // ShopCategory,
     // AppFooter,
+    Carousel,
+    Slide,
+    // Pagination,
+    Navigation,
   },
 
   computed: {
@@ -45,6 +78,7 @@ export default {
       id: this.$route.params.name,
       found: [],
       item: 'gugug66',
+      images: [],
     }
   },
   methods: {
@@ -92,11 +126,13 @@ a {
   height: 100%;
   top: 3.8rem;
   /* background-image: url(@/assets/images/home11.png); */
-  background-attachment: fixed;
+  background-color: #f8f8f8;
+  /* background-attachment: fixed; */
   /* background-size: 100% 120%; */
   background-size: contain;
   /* background-repeat: no-repeat; */
   padding-top: 4rem;
+  overflow: hidden;
 }
 .product__details {
   position: absolute;
@@ -106,7 +142,7 @@ a {
 }
 .bg__one {
   background-image: url(@/assets/images/solar-panel.png);
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-size: cover;
 }
 .btn-place__order {
@@ -149,7 +185,25 @@ input:focus {
   box-shadow: none;
   border-color: #ced4da;
 }
-
+.carousel {
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  /* top: -1rem; */
+}
+.carousel__container {
+  position: relative;
+  bottom: 0;
+  width: 60%;
+  margin: 0px auto;
+  height: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.image__container {
+  border-radius: 10px;
+  background: #ced4da70;
+}
 @media (max-width: 1520px) {
   .product__details {
     margin-right: 2rem;
@@ -166,7 +220,12 @@ input:focus {
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 300px;
+    height: max-content;
+  }
+
+  .carousel__container {
+    margin: 2rem 0;
+    width: 100%;
   }
 
   .product__details {

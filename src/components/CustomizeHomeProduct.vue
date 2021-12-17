@@ -59,7 +59,7 @@
                     battery to give you 1 day of whole home backup.
                   </p>
                 </div>
-                <div>$70,000</div>
+                <!-- <div>$70,000</div> -->
               </div>
               <h6 class="my-2">Pawa battery</h6>
               <ul
@@ -163,7 +163,7 @@
                     battery to give you 1 day of whole home backup.
                   </p>
                 </div>
-                <div>$70,000</div>
+                <!-- <div>$70,000</div> -->
               </div>
 
               <div class="form-group">
@@ -295,29 +295,29 @@
         <h5>Order Summary</h5>
         <div class="d-flex justify-content-between">
           <p>Mounting structures</p>
-          <p>$5,000</p>
+          <!-- <p>$5,000</p> -->
         </div>
         <div class="d-flex justify-content-between">
           <p>Inverter</p>
-          <p>$400</p>
+          <!-- <p>$400</p> -->
         </div>
         <div class="d-flex justify-content-between">
           <p>Battery (x2)</p>
-          <p>$8,000</p>
+          <!-- <p>$8,000</p> -->
         </div>
         <div class="d-flex justify-content-between" style="font-weight: bold">
           <p>Estimated price</p>
-          <p>$18,400</p>
+          <!-- <p>$18,400</p> -->
         </div>
         <div
           class="d-flex justify-content-between border-top border-bottom mb-0 py-2"
         >
           <p>Tax</p>
-          <p>$5,000</p>
+          <!-- <p>$5,000</p> -->
         </div>
         <div class="d-flex justify-content-between" style="font-weight: bold">
           <p>Estimated price after tax</p>
-          <p>$5,000</p>
+          <!-- <p>$5,000</p> -->
         </div>
         <button
           class="btn-place__order w-100 my-3 mb-5"

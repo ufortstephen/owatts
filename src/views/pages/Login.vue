@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Header /> -->
+    <Header />
     <!-- <div class="px-3 fixed-top" style="z-index: 9; background: rgb(0, 0, 0)">
       <AppHeader />
     </div> -->
@@ -67,12 +67,12 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 // import AppBreadcrumb from '@/components/AppBreadcrumb'
-// import Header from '@/components/HeaderComponentOne.vue'
+import Header from '@/components/HeaderComponentOne.vue'
 export default {
   name: 'Login',
   components: {
     // AppBreadcrumb,
-    // Header,
+    Header,
   },
   data() {
     return {
@@ -96,6 +96,11 @@ export default {
         this.disabled = true
         let res = await this.login(this.userDetails)
         console.log(res)
+        this.$moshaToast(`Welcome ${res.data.user.lastname}`, {
+          hideProgressBar: false,
+          type: 'success',
+          position: 'top-center',
+        })
         this.$router.push('/cart')
       } catch (error) {
         this.disabled = false
