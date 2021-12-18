@@ -97,7 +97,7 @@ export default {
         let res = await this.login(this.userDetails)
         console.log(res)
         this.$moshaToast(`Welcome ${res.data.user.lastname}`, {
-          hideProgressBar: false,
+          hideProgressBar: true,
           type: 'success',
           position: 'top-center',
         })
