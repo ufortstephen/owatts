@@ -140,17 +140,6 @@ h5 {
 a:hover {
   text-decoration: none;
 }
-@media (max-width: 528px) {
-  /* .card:hover .category__name {
-    position: absolute;
-    bottom: 0rem;
-    width: 100%;
-    padding: 1rem !important;
-  } */
-  img {
-    /* height: 250px; */
-  }
-}
 
 .product__card img {
   width: 100%;
@@ -188,21 +177,6 @@ h5 {
   border-radius: 7px;
   display: none;
 }
-.card:hover .category__name {
-  /* position: absolute;
-  bottom: -4rem;
-  width: 100%;
-  padding: 1rem !important; */
-}
-/* .card:hover .category__name h5 {
-  margin-bottom: 1rem;
-} */
-
-/* .card:hover .view__products-btn {
-  position: relative;
-  
-  display: block;
-} */
 
 a:hover {
   text-decoration: none;
@@ -215,17 +189,7 @@ a:hover {
     padding: 12px 12px 12px 12px;
   }
 }
-@media (max-width: 528px) {
-  .card:hover .category__name {
-    /* position: absolute;
-    bottom: 0rem;
-    width: 100%;
-    padding: 1rem !important; */
-  }
-  img {
-    /* height: 250px; */
-  }
-}
+
 @media (min-width: 700px) {
   .hero__text {
     height: 500px;

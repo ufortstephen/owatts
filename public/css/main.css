@@ -67,7 +67,6 @@ button {
   color: #ff7e00 !important;
 }
 
-
 /* Nav Bar and Hero HomePage */
 
 /* CAROUSEL */
@@ -637,13 +636,6 @@ mark,
 .figure-caption {
   font-size: 90%;
   color: #6c757d;
-}
-
-code,
-kbd,
-pre,
-samp {
-  /* font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
 }
 
 code {
@@ -4945,10 +4937,6 @@ input[type='button'].btn-block {
 .navbar-dark .navbar-brand:hover,
 .navbar-dark .navbar-brand:focus {
   color: #fff;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  /* color: rgba(255, 255, 255, 0.5); */
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -9376,10 +9364,6 @@ button.bg-dark:focus {
   }
 }
 
-.text-monospace {
-  /* font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
-}
-
 .text-justify {
   text-align: justify !important;
 }
@@ -9682,7 +9666,7 @@ a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
-  color: #fa5bdd;
+  color: #c5c5c5;
 }
 
 a:hover {
@@ -9936,9 +9920,6 @@ h5,
   transition: 0.3s all ease-out;
 }
 
-.ftco-navbar-light.scrolled .navbar-brand {
-  /* color: #000; */
-}
 
 .navbar-brand {
   font-weight: 700;

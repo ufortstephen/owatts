@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-4 mt-5">
+  <div class="container py-4 mt-0">
     <div class="row">
       <div class="col-md-4 text-md-left logo">
         <img src="@/assets/images/orange__logo.png" alt="" />

@@ -35,7 +35,11 @@
 
         <ul
           class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0"
-          :class="this.$route.name == 'Login' ? 'd-none' : ''"
+          :class="
+            this.$route.name == 'Login' || this.$route.name == 'Register'
+              ? 'd-none'
+              : ''
+          "
         >
           <li
             class="nav-item"

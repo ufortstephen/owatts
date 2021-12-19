@@ -93,7 +93,7 @@ export default {
 h1 {
   font-family: sans-serif !important;
   font-size: 3.4rem;
-  font-weight: bolder;
+  font-weight: 700;
   color: #fff;
 }
 
@@ -204,9 +204,6 @@ img {
   }
   h1 {
     font-size: 2rem;
-  }
-  .muted__text {
-    /* font-size: 1.2rem; */
   }
 }
 </style>

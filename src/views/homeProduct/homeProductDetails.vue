@@ -139,6 +139,7 @@ a {
   /* left: 55%; */
   margin-right: 10rem;
   top: 4rem;
+  width: 34%;
 }
 .bg__one {
   background-image: url(@/assets/images/solar-panel.png);

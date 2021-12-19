@@ -81,9 +81,10 @@
     <div v-else class="container empty text-center">
       <h6>Your cart is empty</h6>
       <div class="d-flex justify-content-center mt-3" style="gap: 1rem">
-        <button class="view__btn p-2 mb-4" @click="shop">
-          CONTINUE SHOPPING</button
-        ><button class="shop__btn p-2" @click="signIn">SIGN IN</button>
+        <button class="shop__btn p-2 mb-4" @click="shop">
+          CONTINUE SHOPPING
+        </button>
+        <!-- <button class="shop__btn p-2" @click="signIn">SIGN IN</button> -->
       </div>
     </div>
     <!-- {{ order }} -->

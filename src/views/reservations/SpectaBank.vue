@@ -3,6 +3,7 @@
     <div class="order__summary rounded">
       <!-- {{ scoreResponse }}
       {{ scoreDetails }} -->
+      {{ scoreDetails }}
       <CForm @submit.prevent="requestTicket" v-if="requestForm">
         <div class="mb-4">
           <CFormLabel for="exampleFormControlInput1">Select Bank </CFormLabel>

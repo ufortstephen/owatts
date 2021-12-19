@@ -6,7 +6,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Dashboard',
-    to: '/dashboard',
+    to: '/dashboard/user',
     // icon: 'cil-speedometer',
     // badge: {
     //   color: 'primary',

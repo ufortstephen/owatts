@@ -242,6 +242,7 @@ export default {
   left: 65%;
   margin-right: 10rem;
   top: 4rem;
+  width: 34%;
 }
 .btn-place__order {
   background: #303030;
@@ -339,6 +340,7 @@ input:focus {
   }
   .product__details {
     margin-right: 0rem;
+    width: 100%;
   }
 }
 @media (min-width: 576px) {
