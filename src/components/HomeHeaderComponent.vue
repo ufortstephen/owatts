@@ -16,9 +16,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <router-link to="/" class="">
-          <img src="@/assets/images/menu__icon.png" alt=""
-        /></router-link>
+        <img src="@/assets/images/menu__icon.png" alt="" />
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <button
@@ -93,11 +91,13 @@
             <CDropdown dark>
               <CDropdownToggle></CDropdownToggle>
               <CDropdownMenu>
-                <CDropdownItem href="#">Action</CDropdownItem>
-                <CDropdownItem href="#">Another action</CDropdownItem>
-                <CDropdownItem href="#">Something else here</CDropdownItem>
+                <CDropdownItem @click="this.$router.push('/dashboard')"
+                  >Dashboard</CDropdownItem
+                >
+                <CDropdownItem>View Orders</CDropdownItem>
+                <CDropdownItem href="#">Wallets</CDropdownItem>
                 <CDropdownDivider />
-                <CDropdownItem href="#">Separated link</CDropdownItem>
+                <CDropdownItem href="#">Log out</CDropdownItem>
               </CDropdownMenu>
             </CDropdown></span
           >
@@ -145,6 +145,12 @@ export default {
   methods: {},
 }
 </script>
+
+<style>
+.dropdown-item {
+  cursor: pointer !important;
+}
+</style>
 
 <style scoped>
 .navbar-light .navbar-nav .nav-link {

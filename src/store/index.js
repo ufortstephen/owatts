@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
 const baseUrl = 'https://uat.owatts.io/api/v1/'
+const spectaUrl = 'https://dfs.sterlingapps.p.azurewebsites.net'
 
 export default createStore({
   state: {
@@ -43,9 +44,14 @@ export default createStore({
     ],
     accessory: [],
     cart: [],
-    order: [],
+    order: {
+      products: [],
+    },
     isLoggedIn: null,
-    token: 'jn',
+    token: null,
+    spectaBanks: '',
+    scoreResponse: '',
+    score: '',
   },
   mutations: {
     toggleSidebar(state) {
@@ -71,11 +77,21 @@ export default createStore({
     },
     ADD_ITEM_TO_CART: (state, data) => {
       state.cart.push(data)
-      state.order.push({
-        id: data.id,
+      console.log(state.order)
+      state.order.products.push({
+        product_id: data.id,
         quantity: 1,
         price: '',
       })
+    },
+    SPECTA_BANKS(state, data) {
+      state.spectaBanks = data
+    },
+    SCORE_RESPONSE(state, data) {
+      state.scoreResponse = data
+    },
+    SPECTA_SCORE(state, data) {
+      state.score = data
     },
   },
   actions: {
@@ -108,6 +124,32 @@ export default createStore({
       console.log(res)
       return res
     },
+    async getSpectaBanks({ commit }) {
+      const res = await axios.get(spectaUrl + '/api/SpectaScore/GetBanks')
+      commit('SPECTA_BANKS', res.data)
+      console.log(res)
+      return res
+    },
+    async requestSpectaTicket({ dispatch, commit }, userDetails) {
+      const res = await axios.post(
+        spectaUrl + '/api/SpectaScore/RequestTickets',
+        userDetails,
+      )
+      dispatch('SPECTA', res)
+      commit('SCORE_RESPONSE', res.data.result._scoreResponse)
+      console.log('res')
+      return res
+    },
+    async getSpectaScore({ dispatch, commit }, userDetails) {
+      const res = await axios.post(
+        spectaUrl + '/api/SpectaScore/GetSpectaScore',
+        userDetails,
+      )
+      dispatch('SPECTA_SCORE', res)
+      commit('SPECTA_SCORE', res)
+      console.log(res)
+      return res
+    },
   },
 
   getters: {
@@ -116,6 +158,9 @@ export default createStore({
     },
     getToken: (state) => {
       return state.token
+    },
+    getTrxId: (state) => {
+      return state.scoreResponse.TransactionId
     },
     getSingleProduct: (state) => (id) => {
       return state.products.filter((option) => option.categories[0].name === id)

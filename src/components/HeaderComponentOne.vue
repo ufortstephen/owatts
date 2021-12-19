@@ -33,7 +33,10 @@
           <span class="text-white">&times;</span>
         </button>
 
-        <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
+        <ul
+          class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0"
+          :class="this.$route.name == 'Login' ? 'd-none' : ''"
+        >
           <li
             class="nav-item"
             :class="this.$route.name == 'index' ? 'active' : ''"
@@ -53,12 +56,18 @@
             <a class="nav-link" href="#">Accessories</a>
           </li>
         </ul>
-        <router-link to="/auth/register" v-if="this.$route.name == 'Login'"
+        <router-link
+          to="/auth/register"
+          v-if="this.$route.name == 'Login'"
+          :class="this.$route.name == 'Login' ? 'ml-auto' : ''"
           ><button class="btn text-white" style="background: #303030">
             Register
           </button></router-link
         >
-        <router-link to="/auth" v-else
+        <router-link
+          to="/auth"
+          v-else
+          :class="this.$route.name == 'Register' ? 'ml-auto' : ''"
           ><button class="btn text-white" style="background: #303030">
             Login
           </button></router-link

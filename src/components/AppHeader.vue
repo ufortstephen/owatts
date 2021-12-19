@@ -4,11 +4,11 @@
       <CHeaderToggler class="ps-1" @click="$store.commit('toggleSidebar')">
         <CIcon icon="cil-menu" size="lg" />
       </CHeaderToggler>
-      <CHeaderBrand class="mx-auto d-lg-none" to="/">
+      <!-- <CHeaderBrand class="mx-auto d-lg-none" to="/">
         <CIcon :icon="logo" height="48" alt="Logo" />
-      </CHeaderBrand>
+      </CHeaderBrand> -->
       <CHeaderNav class="d-none d-md-flex me-auto">
-        <CNavItem>
+        <!-- <CNavItem>
           <CNavLink href="/dashboard"> Dashboard </CNavLink>
         </CNavItem>
         <CNavItem>
@@ -16,42 +16,42 @@
         </CNavItem>
         <CNavItem>
           <CNavLink href="#">Settings</CNavLink>
-        </CNavItem>
+        </CNavItem> -->
       </CHeaderNav>
       <CHeaderNav>
-        <CNavItem>
+        <!-- <CNavItem>
           <CNavLink href="#">
             <CIcon class="mx-2" icon="cil-bell" size="lg" />
           </CNavLink>
-        </CNavItem>
+        </CNavItem> -->
         <CNavItem>
           <CNavLink href="#">
             <CIcon class="mx-2" icon="cil-list" size="lg" />
           </CNavLink>
         </CNavItem>
         <CNavItem>
-          <CNavLink href="#">
+          <!-- <CNavLink href="#">
             <CIcon class="mx-2" icon="cil-envelope-open" size="lg" />
-          </CNavLink>
+          </CNavLink> -->
         </CNavItem>
         <AppHeaderDropdownAccnt />
       </CHeaderNav>
     </CContainer>
     <CHeaderDivider />
-    <CContainer fluid>
+    <!-- <CContainer fluid>
       <AppBreadcrumb />
-    </CContainer>
+    </CContainer> -->
   </CHeader>
 </template>
 
 <script>
-import AppBreadcrumb from './AppBreadcrumb'
+// import AppBreadcrumb from './AppBreadcrumb'
 import AppHeaderDropdownAccnt from './AppHeaderDropdownAccnt'
 import { logo } from '@/assets/brand/logo'
 export default {
   name: 'AppHeader',
   components: {
-    AppBreadcrumb,
+    // AppBreadcrumb,
     AppHeaderDropdownAccnt,
   },
   setup() {

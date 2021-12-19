@@ -52,7 +52,35 @@
   </noscript>
   <div id="app"></div>
   <!-- built files will be auto injected -->
+<script>
+  var obj = document.getElementById('partitioned');
+obj.addEventListener('keydown', stopCarret); 
+obj.addEventListener('keyup', stopCarret); 
 
+function stopCarret() {
+	if (obj.value.length > 3){
+		setCaretPosition(obj, 3);
+	}
+}
+
+function setCaretPosition(elem, caretPos) {
+    if(elem != null) {
+        if(elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.move('character', caretPos);
+            range.select();
+        }
+        else {
+            if(elem.selectionStart) {
+                elem.focus();
+                elem.setSelectionRange(caretPos, caretPos);
+            }
+            else
+                elem.focus();
+        }
+    }
+}
+</script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

@@ -1,5 +1,6 @@
 import { h, resolveComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store/index'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
 
@@ -9,6 +10,24 @@ const routes = [
     name: 'Dashboard',
     component: DefaultLayout,
     // redirect: '/dashboard',
+    async beforeEnter(to, from, next) {
+      try {
+        var hasPermission = await store.getters.getToken
+        if (hasPermission) {
+          next()
+        } else {
+          next({
+            name: 'Auth', // back to safety route //
+            query: { redirectFrom: to.fullPath },
+          })
+        }
+      } catch (e) {
+        next({
+          name: 'Auth', // back to safety route //
+          query: { redirectFrom: to.fullPath },
+        })
+      }
+    },
     children: [
       {
         path: '/dashboard',
@@ -20,19 +39,136 @@ const routes = [
           import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
       },
       {
-        path: '/theme',
-        name: 'Theme',
-        redirect: '/theme/typography',
+        path: '/products',
+        name: 'Products',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/products',
+        children: [
+          {
+            path: '/products',
+            name: 'Products',
+            component: () => import('@/views/products/Products.vue'),
+          },
+        ],
       },
       {
-        path: '/theme/colors',
-        name: 'Colors',
-        component: () => import('@/views/theme/Colors.vue'),
+        path: '/reservations',
+        name: 'Reservations',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/reservations',
+        children: [
+          {
+            path: '/reservations',
+            name: 'Reservations',
+            component: () => import('@/views/reservations/Orders.vue'),
+          },
+          {
+            path: '/reservations/:id',
+            name: 'Order Details',
+            component: () => import('@/views/reservations/OrderDetails.vue'),
+          },
+          {
+            path: '/reservations/checkout/specta',
+            name: 'Specta',
+            component: () => import('@/views/reservations/Specta.vue'),
+          },
+          {
+            path: '/reservations/checkout/specta/bankInfo',
+            name: 'Specta Banks',
+            component: () => import('@/views/reservations/SpectaBank.vue'),
+          },
+        ],
+      },
+      {
+        path: '/settings',
+        name: 'Settings',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/settings',
+        children: [
+          {
+            path: '/settings',
+            name: 'Settings',
+            component: () => import('@/views/settings/Settings.vue'),
+          },
+        ],
+      },
+      {
+        path: '/logout',
+        name: 'Log Out',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/logout',
+        children: [
+          {
+            path: '/logout',
+            name: 'Log Out',
+            component: () => import('@/views/pages/Logout.vue'),
+          },
+        ],
+      },
+      {
+        path: '/settings',
+        name: 'Settings',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/settings',
+        children: [
+          {
+            path: '/settings',
+            name: 'Settings',
+            component: () => import('@/views/settings/Settings.vue'),
+          },
+        ],
       },
       {
         path: '/theme/typography',
         name: 'Typography',
         component: () => import('@/views/theme/Typography.vue'),
+      },
+      {
+        path: '/wallets',
+        name: 'Wallets',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/wallets/wallet',
+        children: [
+          {
+            path: '/wallets/wallet',
+            name: 'Wallet',
+            component: () => import('@/views/wallet/Wallets.vue'),
+          },
+          {
+            path: '/wallets/breadcrumbs',
+            name: 'n',
+            component: () => import('@/views/base/Breadcrumbs.vue'),
+          },
+          {
+            path: '/base/cards',
+            name: 'Cards',
+            component: () => import('@/views/base/Cards.vue'),
+          },
+        ],
       },
       {
         path: '/base',

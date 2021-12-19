@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- Page Preloder -->
+    <div id="preloder" v-if="loader">
+      <div class="loader"></div>
+    </div>
     <Header />
     <!-- <div class="px-3 fixed-top" style="z-index: 9; background: rgb(0, 0, 0)">
       <AppHeader />
@@ -10,7 +14,7 @@
     <div class="login__section">
       <form @submit.prevent="loginUser">
         <h4 class="header__text">Sign in</h4>
-        <h6 class="text-danger" v-if="loginError">{{ loginError }}</h6>
+        <!-- <h6 class="text-danger" v-if="loginError">{{ loginError }}</h6> -->
         <div class="form-group my-4">
           <label for="" class="mb-2">Email address</label>
           <input
@@ -59,6 +63,7 @@
             Register</router-link
           >
         </p>
+        <!-- {{ errorMsg }} -->
       </form>
     </div>
   </div>
@@ -74,14 +79,33 @@ export default {
     // AppBreadcrumb,
     Header,
   },
+
   data() {
     return {
+      loader: false,
       userDetails: {
         email: '',
         password: '',
       },
       loginError: '',
       disabled: false,
+      errorMsg: null,
+    }
+  },
+
+  beforeRouteEnter(to, from, next) {
+    if (to.query.redirectFrom) {
+      next((vm) => {
+        vm.errorMsg =
+          "Sorry, you don't have the right access to reach the route requested"
+        vm.$moshaToast(`Login to view dashboard`, {
+          hideProgressBar: true,
+          type: 'info',
+          position: 'top-right',
+        })
+      })
+    } else {
+      next()
     }
   },
 
@@ -93,7 +117,8 @@ export default {
     ...mapActions(['login']),
     async loginUser() {
       try {
-        this.disabled = true
+        this.loader = true
+        // this.disabled = true
         let res = await this.login(this.userDetails)
         console.log(res)
         this.$moshaToast(`Welcome ${res.data.user.lastname}`, {
@@ -103,9 +128,15 @@ export default {
         })
         this.$router.push('/cart')
       } catch (error) {
-        this.disabled = false
+        this.loader = false
+        // this.disabled = false
         console.log(error.response.data.message)
         this.loginError = error.response.data.message
+        this.$moshaToast(`${error.response.data.message}`, {
+          hideProgressBar: true,
+          type: 'danger',
+          position: 'top-right',
+        })
       }
     },
   },

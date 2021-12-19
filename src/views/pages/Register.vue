@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- Page Preloder -->
+    <div id="preloder" v-if="loader">
+      <div class="loader"></div>
+    </div>
     <!-- <div class="px-3 fixed-top" style="z-index: 9; background: rgb(0, 0, 0)"> -->
     <AppHeader />
     <!-- </div> -->
@@ -172,6 +176,7 @@ export default {
   },
   data() {
     return {
+      loader: false,
       userDetails: {
         firstname: '',
         lastname: '',
@@ -189,9 +194,12 @@ export default {
     ...mapActions(['register']),
     async registerUser() {
       try {
+        this.loader = true
         let res = await this.register(this.userDetails)
         console.log(res)
+        this.$router.push('/auth')
       } catch (error) {
+        this.loader = false
         console.log(error.response.data.errors)
         this.registerErrors = error.response.data.errors
       }

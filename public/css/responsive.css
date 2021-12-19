@@ -1,6 +1,3 @@
-/* Reesponsive Styles */
-/* Max-968px */
-
 @media (max-width: 996px) {
   .nav-item {
     width: max-content;

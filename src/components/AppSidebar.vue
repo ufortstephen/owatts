@@ -12,11 +12,14 @@
     "
   >
     <CSidebarBrand>
-      <CIcon
+      <!-- <CIcon
         custom-class-name="sidebar-brand-full"
         :icon="logoNegative"
         :height="35"
-      />
+      /> -->
+      <router-link to="/" class="navbar-brand"
+        ><img src="@/assets/images/log.png" alt=""
+      /></router-link>
       <CIcon
         custom-class-name="sidebar-brand-narrow"
         :icon="sygnet"
@@ -53,3 +56,22 @@ export default {
   },
 }
 </script>
+
+<style>
+.sidebar.sidebar-fixed {
+  background: #303030 !important;
+}
+.sidebar-nav .nav-link.active {
+  background: #fff !important;
+  color: #303030;
+  border-radius: 10px;
+}
+.sidebar-nav .nav-link:hover {
+  background: #fff;
+  color: #303030;
+  border-radius: 10px;
+}
+.nav-item {
+  margin-top: 1rem;
+}
+</style>

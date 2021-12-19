@@ -150,6 +150,7 @@ export default {
             type: 'success',
             position: 'top-right',
           })
+          this.$router.push('/reservations')
         } catch (error) {
           this.$moshaToast(`Error making order`, {
             hideProgressBar: false,
