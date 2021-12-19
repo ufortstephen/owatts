@@ -9,7 +9,7 @@
     <div class="products">
       <div class="product__image px-3 text-center">
         <!-- <img src="@/assets/images/kike-gas.png" alt="" style="width: 80%" /> -->
-        <img src="@/assets/images/solar.png" alt="fr" style="width: 100px" />
+        <!-- <img src="@/assets/images/solar.png" alt="fr" style="width: 100px" /> -->
         <div class="carousel__container">
           <carousel :items-to-show="3">
             <slide v-for="slide in 10" :key="slide">
@@ -122,15 +122,15 @@ a {
 .product__image {
   /* background: #c5c5c5; */
   position: fixed;
-  width: 65%;
+  width: 57%;
   height: 100%;
   top: 3.8rem;
-  /* background-image: url(@/assets/images/home11.png); */
+  background-image: url(@/assets/images/home11.png);
   background-color: #f8f8f8;
   /* background-attachment: fixed; */
   /* background-size: 100% 120%; */
-  background-size: contain;
-  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  background-repeat: no-repeat;
   padding-top: 4rem;
   overflow: hidden;
 }
@@ -139,7 +139,7 @@ a {
   /* left: 55%; */
   margin-right: 10rem;
   top: 4rem;
-  width: 34%;
+  width: 48%;
 }
 .bg__one {
   background-image: url(@/assets/images/solar-panel.png);
@@ -197,7 +197,7 @@ input:focus {
   bottom: 0;
   width: 60%;
   margin: 0px auto;
-  height: 50%;
+  height: 80%;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -219,7 +219,7 @@ input:focus {
     /* background: #c5c5c5; */
     position: relative;
     width: 100%;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: max-content;
   }

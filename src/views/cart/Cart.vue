@@ -1,9 +1,9 @@
 <template>
   <div>
     <div style="background: rgb(0, 0, 0)" class=""><AppHeader /></div>
-    <div class="container"></div>
-    <div class="items container px-3" v-if="cart.length > 0">
-      <h6 class="text-left text-md-left my-3">Items in Cart</h6>
+
+    <div class="items container px-3 my-5" v-if="cart.length > 0">
+      <!-- <h6 class="text-left text-md-left my-3">Items in Cart</h6> -->
       <div>
         <CartItem class="mb-3" />
       </div>

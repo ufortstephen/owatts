@@ -239,7 +239,7 @@ export default {
 <style scoped>
 .product__details {
   position: absolute;
-  left: 65%;
+  left: 60%;
   margin-right: 10rem;
   top: 4rem;
   width: 34%;
