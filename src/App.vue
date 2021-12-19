@@ -5,6 +5,11 @@
 <style lang="scss">
 // Import Main styles for this application
 @import 'styles/style';
+// @import '@/assets/css/main.css';
+// @import '@/assets/css/responsive.css';
+</style>
+
+<style>
 @import '@/assets/css/main.css';
 @import '@/assets/css/responsive.css';
 </style>
@@ -22,6 +27,9 @@
 }
 p {
   font-size: 15px !important;
+}
+.breadcrumb {
+  background: transparent !important;
 }
 
 input:focus {

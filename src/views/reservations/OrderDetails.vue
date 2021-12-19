@@ -85,7 +85,7 @@ export default {
     // this.$store.getters.getProduct(this.$route.params.id)
   },
   methods: {
-    ...mapActions(['getOptions']),
+    ...mapActions(['getOptions', 'getOrders']),
     ...mapMutations(['ADD_ITEM_TO_CART']),
     async findProduct() {
       console.log(this.products)

@@ -41,19 +41,20 @@ const routes = [
       {
         path: '/products',
         name: 'Products',
-        component: {
-          render() {
-            return h(resolveComponent('router-view'))
-          },
-        },
-        redirect: '/products',
-        children: [
-          {
-            path: '/products',
-            name: 'Products',
-            component: () => import('@/views/products/Products.vue'),
-          },
-        ],
+        // component: {
+        //   render() {
+        //     return h(resolveComponent('router-view'))
+        //   },
+        // },
+        component: () => import('@/views/products/Products.vue'),
+        // redirect: '/products',
+        // children: [
+        //   {
+        //     path: '/products',
+        //     name: 'Products',
+        //     component: () => import('@/views/products/Products.vue'),
+        //   },
+        // ],
       },
       {
         path: '/reservations',

@@ -7,12 +7,12 @@
       <CDropdownHeader component="h6" class="bg-light fw-semibold py-2">
         Account
       </CDropdownHeader>
-      <CDropdownItem>
+      <CDropdownItem @click="this.$router.push('/shop')">
         <!-- <CIcon icon="cil-bell" /> -->
         Visit Shop
         <!-- <CBadge color="info" class="ms-auto">{{ itemsCount }}</CBadge> -->
       </CDropdownItem>
-      <CDropdownItem>
+      <CDropdownItem @click="this.$router.push('/reservations')">
         <!-- <CIcon icon="cil-envelope-open" />  -->
         View Orders
         <!-- <CBadge color="success" class="ms-auto">{{ itemsCount }}</CBadge> -->
@@ -70,5 +70,6 @@ export default {
 <style>
 .dropdown-item {
   cursor: pointer;
+  font-size: small;
 }
 </style>

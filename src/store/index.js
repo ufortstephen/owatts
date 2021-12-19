@@ -47,6 +47,7 @@ export default createStore({
     order: {
       products: [],
     },
+    myOrders: '',
     isLoggedIn: null,
     token: null,
     spectaBanks: '',
@@ -93,6 +94,9 @@ export default createStore({
     SPECTA_SCORE(state, data) {
       state.score = data
     },
+    MY_ORDERS(state, data) {
+      state.myOrders = data
+    },
   },
   actions: {
     async login({ commit }, userDetails) {
@@ -121,6 +125,14 @@ export default createStore({
         order,
       })
       dispatch('ORDERR', res.data)
+      console.log(res)
+      return res
+    },
+    async getOrders({ commit }) {
+      const res = await axios.get(baseUrl + 'orders', {
+        Authorization: `Bearer ${this.$store.getters('getToken')}`,
+      })
+      commit('MY_ORDERS', res.data)
       console.log(res)
       return res
     },

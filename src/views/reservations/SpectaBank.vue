@@ -2,8 +2,7 @@
   <div>
     <div class="order__summary rounded">
       <!-- {{ scoreResponse }}
-      {{ scoreDetails }} -->
-      {{ scoreDetails }}
+      {{ userAccount }} -->
       <CForm @submit.prevent="requestTicket" v-if="requestForm">
         <div class="mb-4">
           <CFormLabel for="exampleFormControlInput1">Select Bank </CFormLabel>
@@ -53,7 +52,10 @@
             v-model="userAccount.EmailAddress"
           >
             <!-- <option disabled>1 Month</option> -->
-            <option></option>
+            <option value="oladejisteven@gmail.com">
+              oladejisteven@gmail.com
+            </option>
+            <option>oladejisteven@gmail.com</option>
             <option :value="isLoggedIn.user.email">
               {{ isLoggedIn.user.email }}
             </option>
@@ -69,6 +71,7 @@
             v-model="userAccount.PhoneNumber"
           >
             <option></option>
+            <option value="08067383816">08067383816</option>
 
             <option :value="isLoggedIn.user.phone">
               {{ isLoggedIn.user.phone }}

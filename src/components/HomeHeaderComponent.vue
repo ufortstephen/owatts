@@ -91,10 +91,12 @@
             <CDropdown dark>
               <CDropdownToggle></CDropdownToggle>
               <CDropdownMenu>
-                <CDropdownItem @click="this.$router.push('/dashboard')"
+                <CDropdownItem @click="this.$router.push('/dashboard/user')"
                   >Dashboard</CDropdownItem
                 >
-                <CDropdownItem>View Orders</CDropdownItem>
+                <CDropdownItem @click="this.$router.push('/reservations')"
+                  >View Orders</CDropdownItem
+                >
                 <CDropdownItem href="#">Wallets</CDropdownItem>
                 <CDropdownDivider />
                 <CDropdownItem href="#">Log out</CDropdownItem>
@@ -110,6 +112,22 @@
           <span
             ><CIcon icon="cil-magnifying-glass" style="color: #ff7e00"
           /></span>
+          <router-link to="/cart" class="ca t"
+            ><img
+              v-if="cart.length > 0"
+              src="@/assets/images/c.png"
+              alt=""
+              class="mx-4"
+              style="width: 27px"
+            />
+            <img
+              v-else
+              src="@/assets/images/empty.png"
+              alt=""
+              class="mx-4"
+              style="width: 27px"
+            />
+          </router-link>
           <div>
             <router-link to="/auth" class="btn text-white">Login</router-link>
           </div>
@@ -118,9 +136,6 @@
               <button class="btn btn-white">Register</button></router-link
             >
           </div>
-          <span
-            ><CIcon icon="cil-child-friendly" style="color: #ff7e00"
-          /></span>
         </div>
       </div>
     </nav>

@@ -71,7 +71,10 @@ export default {
   color: #303030;
   border-radius: 10px;
 }
-.nav-item {
-  margin-top: 1rem;
+.sidebar-nav .nav-item {
+  margin-top: 1rem !important;
+  font-size: 15px;
 }
 </style>
+
+<style scoped></style>
