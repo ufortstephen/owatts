@@ -1,51 +1,37 @@
 <template>
   <div>
-    <h4 class="mb-4">Orders</h4>
-    {{ myOrders }}
-    <CTable striped>
-      <CTableHead>
-        <CTableRow>
-          <CTableHeaderCell scope="col">#</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Product</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Quantity</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Price</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Status</CTableHeaderCell>
-          <CTableHeaderCell scope="col">Actions</CTableHeaderCell>
-        </CTableRow>
-      </CTableHead>
-      <CTableBody>
-        <CTableRow v-for="item in orders" :key="item.id">
-          <CTableHeaderCell scope="row"> PID {{ item.id }} </CTableHeaderCell>
-          <CTableDataCell>
-            Home {{ item.products[0].product_id }}
-          </CTableDataCell>
-          <CTableDataCell> {{ item.products[0].quantity }} </CTableDataCell>
-          <CTableDataCell> $ {{ item.total }} </CTableDataCell>
-          <CTableDataCell>{{ item.status.name }}</CTableDataCell>
-          <CTableDataCell>
-            <CDropdown>
-              <CDropdownToggle
-                ><span class="badge badge-pill ml-2 rounded__pill">
-                  <CIcon icon="cil-options" style="color: #000" /></span
-              ></CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem
-                  @click="
-                    this.$router.push(
-                      `/reservations/${item.products[0].product_id}`,
-                    )
-                  "
-                  >View</CDropdownItem
-                >
-                <CDropdownItem href="#">Make Payment</CDropdownItem>
-                <CDropdownItem href="#">Cancel</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-          </CTableDataCell>
-        </CTableRow>
-      </CTableBody>
-    </CTable>
+    <h2 class="mb-4">Orders</h2>
     <!-- {{ orders }} -->
+    <div class="products__container px-0">
+      <div
+        class="product__card card"
+        v-for="(product, index) in orders"
+        :key="index"
+      >
+        <!-- <img :src="product.image_url" alt="fr" class="image" /> -->
+        <!-- <img
+                :src="'@/assets/images/' + product.image"
+                alt="fr"
+                class="image"
+              /> -->
+        <!-- <img
+          :src="require(`@/assets/images/${product.image}`)"
+          alt="fr"
+          class="image"
+        /> -->
+
+        <div class="category__name py-3 pl-2">
+          <div class="category__desc p-2">
+            <router-link
+              :to="{ path: `/reservations/${product.products[0].product_id}` }"
+              class="text-dark text-underline"
+            >
+              View order
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -107,5 +93,87 @@ tr {
 .table th,
 .table td {
   vertical-align: baseline;
+}
+.products__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  row-gap: 3rem;
+}
+
+.product__card {
+  width: 100%;
+  height: 20px;
+  /* padding: 2rem; */
+  /* background: #f8f8f881; */
+}
+.card {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  height: max-content;
+}
+.category__name {
+  position: relative;
+  background-image: url(@/assets/images/lp2.jpg);
+  background-size: contain;
+  box-shadow: 0px 0px 2px 1px #c5c5c5;
+}
+.category__desc {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 50px;
+  background-color: #fff;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+.product__card {
+  border-radius: 6px;
+}
+h5 {
+  font-size: 18px;
+}
+
+.view__products-btn {
+  position: relative;
+  background: #303030;
+  font-size: 11px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 80%;
+  padding: 14px 20px 14px 20px;
+  border-radius: 7px;
+  display: block !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.product__card img {
+  width: 100%;
+  height: 250px;
+}
+.card {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  height: max-content;
+}
+.category__name {
+  /* background: #f8f8f8; */
+  height: 200px;
+  border-radius: 10px;
+}
+.product__card {
+  border-radius: 6px;
 }
 </style>

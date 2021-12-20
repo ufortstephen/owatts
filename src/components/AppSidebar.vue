@@ -11,12 +11,8 @@
         })
     "
   >
-    <CSidebarBrand>
-      <!-- <CIcon
-        custom-class-name="sidebar-brand-full"
-        :icon="logoNegative"
-        :height="35"
-      /> -->
+    <!-- <CSidebarBrand>
+     
       <router-link to="/" class="navbar-brand"
         ><img src="@/assets/images/log.png" alt=""
       /></router-link>
@@ -25,12 +21,12 @@
         :icon="sygnet"
         :height="35"
       />
-    </CSidebarBrand>
+    </CSidebarBrand> -->
     <AppSidebarNav />
-    <CSidebarToggler
+    <!-- <CSidebarToggler
       class="d-none d-lg-flex"
       @click="$store.commit('toggleUnfoldable')"
-    />
+    /> -->
   </CSidebar>
 </template>
 
@@ -59,22 +55,40 @@ export default {
 
 <style>
 .sidebar.sidebar-fixed {
-  background: #303030 !important;
+  background: #fff !important;
+  top: 5rem;
 }
 .sidebar-nav .nav-link.active {
-  background: #fff !important;
-  color: #303030;
+  /* background: rgba(0, 0, 0, 0.103) !important; */
+  color: #000;
   border-radius: 10px;
+  font-weight: 700;
+}
+.sidebar-nav .nav-link.active:hover {
+  /* color: #fff; */
 }
 .sidebar-nav .nav-link:hover {
-  background: #fff;
-  color: #303030;
+  /* background: rgba(0, 0, 0, 0.459); */
+  color: #000;
   border-radius: 10px;
 }
 .sidebar-nav .nav-item {
   margin-top: 1rem !important;
-  font-size: 15px;
+  font-size: medium;
+  color: #303030 !important;
+}
+.sidebar-nav .nav-link {
+  color: #303030;
+  font-weight: 700;
+  font-size: medium;
+}
+.sidebar-nav .nav-icon {
+  color: #000 !important;
 }
 </style>
 
-<style scoped></style>
+<style scoped>
+svg {
+  color: #000;
+}
+</style>

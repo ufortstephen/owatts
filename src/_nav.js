@@ -7,11 +7,7 @@ export default [
     component: 'CNavItem',
     name: 'Dashboard',
     to: '/dashboard/user',
-    // icon: 'cil-speedometer',
-    // badge: {
-    //   color: 'primary',
-    //   text: 'NEW',
-    // },
+    icon: 'cil-speedometer',
   },
   // {
   //   component: 'CNavTitle',
@@ -21,25 +17,25 @@ export default [
     component: 'CNavItem',
     name: 'Reservations',
     to: '/reservations',
-    // icon: 'cil-drop',
+    icon: 'cil-task',
+  },
+  {
+    component: 'CNavItem',
+    name: 'Profile Settings',
+    to: '/settings',
+    icon: 'cil-user',
   },
   {
     component: 'CNavItem',
     name: 'Wallet',
     to: '/wallets',
-    // icon: 'cil-pencil',
+    icon: 'cil-dollar',
   },
   {
     component: 'CNavItem',
     name: 'Products',
     to: '/products',
-    // icon: 'cil-pencil',
-  },
-  {
-    component: 'CNavItem',
-    name: 'Settings',
-    to: '/settings',
-    // icon: 'cil-pencil',
+    icon: 'cil-task',
   },
   // {
   //   component: 'CNavTitle',
@@ -49,7 +45,7 @@ export default [
     component: 'CNavItem',
     name: 'Log out',
     to: '/logout',
-    // icon: 'cil-pencil',
+    icon: 'cil-lock-locked',
   },
   // {
   //   component: 'CNavGroup',

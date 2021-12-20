@@ -17,7 +17,10 @@
         <div class="col-md-4">
           <div class="d-flex" style="gap: 1rem">
             <i class="cil-location-pin"></i>
-            <p>The green place 18b, Ogindana Street, Allen Ave, Ikeja.</p>
+            <p>
+              700 El Camino Real <br />
+              Menlo Park CA 84025
+            </p>
           </div>
           <div class="d-flex" style="gap: 1rem">
             <i class="cil-audio"></i>
@@ -27,8 +30,10 @@
             </div>
           </div>
           <div class="d-flex" style="gap: 1rem">
-            <i class="cib-gmail"></i>
-            <p>support@owatts.com</p>
+            <i class="cib-gmail align-self-center"></i>
+            <a href="mailto: hello@owatts.io" class="text-dark"
+              >hello@owatts.io</a
+            >
           </div>
         </div>
         <div class="col-md-6 offset-md-2 px-0">

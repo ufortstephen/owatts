@@ -472,6 +472,11 @@ const routes = [
     component: () => import('@/views/faq/faq'),
   },
   {
+    path: '/policy',
+    name: 'Policy',
+    component: () => import('@/views/terms/Policy'),
+  },
+  {
     path: '/terms',
     name: 'Terms',
     component: () => import('@/views/terms/TermsOfUse'),

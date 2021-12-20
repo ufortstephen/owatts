@@ -47,3 +47,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.breadcrumb-item a {
+  color: #fff !important;
+}
+</style>

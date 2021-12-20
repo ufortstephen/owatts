@@ -144,8 +144,13 @@
               <label class="container"
                 ><small style="font-size: small"
                   >By creating a Owatt account, you understand and agree to the
-                  Owatt <span class="blue">Terms of use </span>and
-                  <span class="blue">Privacy policy</span>
+                  Owatt
+                  <span class="blue" @click="this.$router.push('/terms')"
+                    >Terms of use </span
+                  >and
+                  <span class="blue" @click="this.$router.push('/policy')"
+                    >Privacy policy</span
+                  >
                 </small>
                 <input type="radio" name="radio" required />
                 <span class="checkmark"></span>

@@ -1,43 +1,57 @@
 <template>
-  <CHeader position="sticky" class="mb-4">
+  <CHeader position="sticky" class="mb-4 py-3">
     <CContainer fluid>
-      <CHeaderToggler class="ps-1" @click="$store.commit('toggleSidebar')">
+      <router-link to="/" class="navbar-brand"
+        ><img src="@/assets/images/orange__logo.png" alt=""
+      /></router-link>
+      <!-- <CHeaderToggler class="ps-1" @click="$store.commit('toggleSidebar')">
         <CIcon icon="cil-menu" size="lg" />
-      </CHeaderToggler>
-      <!-- <CHeaderBrand class="mx-auto d-lg-none" to="/">
-        <CIcon :icon="logo" height="48" alt="Logo" />
-      </CHeaderBrand> -->
-      <CHeaderNav class="d-none d-md-flex me-auto">
-        <!-- <CNavItem>
-          <CNavLink href="/dashboard"> Dashboard </CNavLink>
+      </CHeaderToggler> -->
+
+      <CHeaderNav class="d-none d-md-flex ml-auto mr-auto">
+        <CNavItem>
+          <CHeaderToggler class="ps-1" @click="$store.commit('toggleSidebar')">
+            <CIcon icon="cil-menu" size="lg" />
+          </CHeaderToggler>
         </CNavItem>
         <CNavItem>
-          <CNavLink href="#">Users</CNavLink>
+          <CNavLink @click="this.$router.push('/shop/Clean%20Power')">
+            Clean Power
+          </CNavLink>
         </CNavItem>
         <CNavItem>
-          <CNavLink href="#">Settings</CNavLink>
-        </CNavItem> -->
+          <CNavLink @click="this.$router.push('/shop/Clean%20Gas')"
+            >Clean Gas</CNavLink
+          >
+        </CNavItem>
+        <CNavItem>
+          <CNavLink @click="this.$router.push('/shop/Clean%20Water')"
+            >Clean Water</CNavLink
+          >
+        </CNavItem>
+        <CNavItem>
+          <CNavLink @click="this.$router.push('/shop/Digital%20Estate')"
+            >Digital Estate</CNavLink
+          >
+        </CNavItem>
+        <CNavItem>
+          <CNavLink @click="this.$router.push('/shop/eMobility')"
+            >eMobility</CNavLink
+          >
+        </CNavItem>
       </CHeaderNav>
-      <CHeaderNav>
-        <!-- <CNavItem>
-          <CNavLink href="#">
-            <CIcon class="mx-2" icon="cil-bell" size="lg" />
-          </CNavLink>
-        </CNavItem> -->
-        <CNavItem>
-          <CNavLink href="#">
-            <CIcon class="mx-2" icon="cil-list" size="lg" />
-          </CNavLink>
-        </CNavItem>
-        <CNavItem>
-          <!-- <CNavLink href="#">
-            <CIcon class="mx-2" icon="cil-envelope-open" size="lg" />
-          </CNavLink> -->
-        </CNavItem>
+      <CHeaderNav class="d-none d-md-flex">
         <AppHeaderDropdownAccnt />
       </CHeaderNav>
+      <CHeaderNav class="d-flex d-md-none">
+        <CNavItem>
+          <CHeaderToggler class="ps-1" @click="$store.commit('toggleSidebar')">
+            <CIcon icon="cil-menu" size="lg" />
+          </CHeaderToggler>
+        </CNavItem>
+      </CHeaderNav>
     </CContainer>
-    <CHeaderDivider />
+    <!-- <CHeaderDivider /> -->
     <!-- <CContainer fluid>
       <AppBreadcrumb />
     </CContainer> -->
@@ -61,3 +75,15 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.header {
+  border-bottom: none !important;
+}
+.header-nav .nav-link {
+  font-weight: 700;
+  font-size: medium;
+  color: #303030;
+  cursor: pointer;
+}
+</style>
